@@ -1,0 +1,52 @@
+<h2>Property Binding <code>[property]="expression"</code></h2>
+
+<button [disabled]="isUnchanged">Deshabilitado con <code>[disabled]="isUnchanged"</code></button>
+
+<p [ngClass]="classes">
+  Clases agregadas con <code>[ngClass]="classes"</code>, inspecciona este &lt;p&gt;
+</p>
+
+<h3>Muchos prefieren la alternativa con prefijo <code>bind-</code></h3>
+<button bind-disabled="isUnchanged">Deshabilitado con <code>bind-disabled="isUnchanged"</code></button>
+
+<p bind-ngClass="classes">
+    Clases agregadas con <code>bind-ngClass="classes"</code>, inspecciona este &lt;p&gt;
+</p>
+
+<p>Normalmente el objetivo(target) de Property binding es el nombre de la propieda del elemento, recuerda
+  estamos trabajando con propiedades, no atributos. Pero antes de esto Angular revisa si el target
+  es una directiva conocida, como por ejemplo <code>ngClass</code>
+</p>
+
+<h2>Property binding o interpolation?</h2>
+
+<p>Cuando lo que queremos enlazar resolviendo la expresion es un dato string, interpolacion
+  es muy conveniente, pero cuando lo que queremos enlazar no es string, entonces se debe utilizar
+  <strong>property binding</strong>
+</p>
+<p>
+  <code>[src]="logoUrl"</code>
+  <img [src]="logoUrl" alt="">
+</p>
+<p>
+  <code>src="<code>{{</code>logoUIrl<code>}}</code>"</code>
+  <img [src]="logoUrl" alt="">
+</p>
+
+<p> <span>{{whichOne}}</span> utilizando interpolation <code>{{</code>whichOne<code>}}</code></p>
+<p> <span [innerHTML]="whichOne"></span> utilizando Property binding <code>[innerHTML]="whicOne"</code></p>
+
+<h3>Content security</h3>
+<p>Si bindeamos esta propiedad con contenido peligroso, angular se aseguro de convertirlo en inofensivo</p>
+<code>private evilTitle = 'Template &lt;script&gt;alert("evil never sleeps")&lt;/script&gt;Syntax';</code>
+
+<p>{{evilTitle}}</p>
+<p [innerHTML]="evilTitle"></p>
+
+<p>Podemos notar que interpolation y Property binding renderizan el string de manaera diferente
+  pero aun asi de manera inofensiva
+</p>
+
+<h4>Algo que me gustaria destacar en estos ultimos ejemplos es el uso de PropertyBinding a la propiedad <code>[innerHTMTL]</code>
+   esto es un ejemplo de que estamos bindeando propiedades, no atributos. No existe el attributo <code>innerHTML</code>
+ </h4>

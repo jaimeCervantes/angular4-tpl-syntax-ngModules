@@ -1,0 +1,32 @@
+<h2>Template Expressions</h2>
+<p><code>{{</code><code>expression</code><code>}}</code></p>
+<p>This is a component member {{title}}</p>
+<input type="text" value="valor de Template reference variable" #templateReferenceVariable>
+<p>{{templateReferenceVariable}}</p>
+<p>{{templateReferenceVariable.value}}</p>
+<ul>
+  <li *ngFor="let p of people">
+    this is a template input variable {{p.name}}
+  </li>
+</ul>
+
+<h2>Template statements</h2>
+<p><code>(event)="statement"</code></p>
+<p>This one differs from template expresion in accepting this only assigment operation "=" and chaining expressions with ":" or ","</p>
+
+<ul>
+  <li *ngFor="let p of people">
+   {{p.name}} <button (click)="delete(p)">Delete</button>
+  </li>
+</ul>
+
+<div>
+  <input type="text" #name1>
+  <button (click)="save(name1.value, $event)">Crear</button>
+</div>
+<h2>Binding Syntax: Properties vs Attributes</h2>
+<p>The binding syntaxs works on properties, no attributes</p>
+<p><code>[(ngModel)]="attrVsProp"</code></p>
+<input type="text" #name2 value="Escribe un nombre" [(ngModel)]="attrVsProp">
+<p>Property 'value': {{name2.value}}</p>
+<p>Attribute 'value: {{name2.getAttribute('value')}}</p>
