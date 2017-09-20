@@ -1,1 +1,53 @@
 <h2>Attributes, class and style bindings</h2>
+
+<h3>Attributes</h3>
+<p>Este es la unica excepcion acerca de que los bindeos se hacen a los propiedades
+  y no a los atributos
+</p>
+
+<p><code>&lt;td [attr.colspan]="1 + 1"&gt;Uno-Dos&lt;/td&gt;</code></p>
+
+<table border=1>
+    <!--  expression calculates colspan=2 -->
+    <tr>
+      <td [attr.colspan]="1 + 1">Uno-Dos</td>
+    </tr>
+  
+    <!-- ERROR: There is no `colspan` property to set!
+      <tr><td colspan="{{1 + 1}}">Three-Four</td></tr>
+    -->
+  
+    <tr>
+      <td>5</td>
+      <td>6</td></tr>
+  </table>
+
+  <p>Para ARIA attributos</p>
+  <code>[attr.aria-label]="actionName"</code>
+  <button [attr.aria-label]="actionName">{{actionName}} con ARIA</button>
+
+  <h3>Class binding</h3>
+  <p class="uno dos tres" [class]="classBinding">usando atributo normal class y [class]="classBinding"</p>
+
+  <p [class.special]="isSpecial"> <code>[class.special]="isSpecial"</code> </p>
+  <p class="clase-normal" [class.special]="isSpecial"> <code>class="clase-normal" [class.special]="isSpecial"</code> si isSpecial retorna true, entonces sera <code>class="clase-normal special"</code> </p>
+
+  <h3>Style binding</h3>
+
+  <p>Podemos utilizar camel-case o dash-case</p>
+
+  <button [style.color]="isSpecial ? 'red' : 'green'">
+    <code>[style.color]="isSpecial ? 'red' : 'green'"</code>
+  </button>
+  <button [style.background-color]="isSpecial ? 'red' : 'green'">
+    <code>[style.background-color]="isSpecial ? 'red' : 'green'"</code>
+  </button>
+
+  <p>Algunas bindeos de estilos permite establecer unidades</p>
+
+  <button [style.fontSize.rem]="2">[style.fontSize.rem]="2"</button>
+  <button [style.font-size.%]="120">[style.fontSize.%]="120"</button>
+
+  <p [style.color]="'red'">Es importante saber que style binding no es recomendado para difinar mas de un estilo, para estilo
+    existe la directiva ngStyle o mejor aun, la directiva ngClass.
+  </p>
