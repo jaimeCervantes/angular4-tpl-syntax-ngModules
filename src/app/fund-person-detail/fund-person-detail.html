@@ -1,0 +1,7 @@
+<div [attr.class]="'person'">
+  <p>{{person.name}}</p>
+  <p [innerHTML]="person.age"></p>
+  <button on-click="delete()">Delete</button>
+  <ng-content>
+  </ng-content>
+</div>

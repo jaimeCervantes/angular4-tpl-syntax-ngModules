@@ -1,0 +1,36 @@
+<h2>Event Binding, Enlazado de eventos <code>(event)</code></h2>
+<h3>Target Event</h3>
+
+<button (click)="triggerAlert()">
+  <code>(click)="triggerAlert()"</code>
+</button>
+
+<p>Se puede utilizar el prefijo <code>on-</code>, conocido como forma canonica</p>
+<button on-click="triggerAlert()"><code>on-click="triggerAlert()"</code></button>
+
+<p>Al igual que pasa con las property bindings, angular revisa primero si existe alguna directiva que tiene definido
+  algun target event, y despues los demas event targets de elementos, por ejemplo:
+</p>
+<code>&lt;!-- `myClick` is an event on the custom `ClickDirective` --&gt;</code>
+<br>
+<code>&lt;div (myClick)="clickMessage=$event" clickable&gt;click with myClick&lt;/div&gt;</code>
+
+<h3>$event y sentencias para el manejo de eventos</h3>
+
+<p>En este ejemplo se enlaza la propiedad value con person.name(Property binding), y ademas se bindeo el evento 'input' de los
+  elementos inputs (event binding), estableciendo person.name = $event.target.value
+</p>
+<fund-person-detail on-deleteEvent="delete($event)" *ngFor="let person of people" [person]="person">
+    <p><code>&lt;input type="text" [value]="person.name" (input)="person.name = $event.target.value"&gt;</code></p>
+    <input type="text" [value]="person.name" (input)="person.name = $event.target.value">
+</fund-person-detail>
+<p>Si el evento pertenece a una directiva( Recuerda que una directiva es un component), el objeto $event sera
+  lo que definia ese directiva,y puede ser diferente en cada directiva y/o componente
+</p>
+
+<h3>Custom events</h3>
+
+<fund-person-detail on-deleteEvent="delete($event)" *ngFor="let person of people" [person]="person">
+  <p>Revisar codigo de fund-event-binding.component(on-deleteEvent) y fund-person-detail.component(EventEmitter)</p>
+</fund-person-detail>
+
