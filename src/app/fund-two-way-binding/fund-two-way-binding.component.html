@@ -1,0 +1,95 @@
+<h2>Two way binding [()]</h2>
+<p><code>&lt;fund-sizer [(size)]="fontSizePx"&gt;&lt;/fund-sizer&gt;</code></p>
+<fund-sizer [(size)]="fontSizePx"></fund-sizer>
+<div>font-size: {{fontSizePx}}px</div>
+<p>El two-way data binding, no es mas que syntactic sugar para la utilizacion conjunta de Property binding y Event binding:</p>
+<p><code>&lt;fund-sizer [size]="fontSizePx" (sizeChange)="fontSizePx = $event" &gt;&lt;/fund-sizer&gt;</code></p>
+<fund-sizer [size]="fontSizePx" (sizeChange)="fontSizePx = $event"></fund-sizer>
+<div>font-size: {{fontSizePx}}px</div>
+
+<h3>Seria conveniente seguir el patron <code>x</code> <code>xChange</code> Para elementos nativos HTML</h3>
+<p>Donde x es el nombre de la propiedad a la que se quiere bindear</p>
+<p>Pero lamentablement esto no es posible por las diferencias de eventos y propiedades</p>
+<p>Por ejemplo para un <strong><code>&lt;input&gt;</code></strong> el evento de cambio es <strong><code>input</code></strong></p>
+<p><code>&lt;input type="text" [value]="name" (input)="name = $event.target.value"&gt;</code></p>
+<input type="text" [value]="name" (input)="name = $event.target.value">
+<p>{{name}}</p>
+
+<p>Notemos en el ejemplo anterior que para un <strong><code>&lt;input&gt;</code></strong> el evento que se dispara al cambiar el valor se llama <strong><code>input</code></strong>, pero en el caso de un <strong><code>&lt;select&gt;</code></strong> la cosa seria diferente:</p>
+<p>El evento que se dispara al seleccinar un option se llama <strong><code>change</code></strong></p>
+
+<div>
+  <code>
+    &lt;select (change)="selected = $event.target.value"&gt;
+  </code>
+</div>
+<div>
+  <code>
+      &#160;&#160;&lt;option *ngFor="let person of people" [value]="person.name" [selected]="selected === person.name" [innerHTML]="person.name"&gt;&lt;/option&gt;
+  </code>
+</div>
+<div>
+  <code>
+    &lt;/select&gt;
+  </code>
+</div>
+
+<select (change)="selected = $event.target.value">
+  <option *ngFor="let person of people" [value]="person.name" [selected]="selected === person.name" [innerHTML]="person.name"></option>
+</select>
+<p>{{selected}}</p>
+
+<p>Afortunadamente angular tiene construida una directive interna llamada ngModel, la cual contrala las diferencias de eventos y propiedades
+  para conseguir two-way-binding
+</p>
+<div>
+  <code>
+    &lt;select [(ngModel)]="selected"&gt;
+  </code>
+</div>
+<div>
+  <code>
+      &#160;&#160;&lt;option *ngFor="let person of people" [value]="person.name" [innerHTML]="person.name"&gt;&lt;/option&gt;
+  </code>
+</div>
+<div>
+  <code>
+    &lt;/select&gt;
+  </code>
+</div>
+
+<select [(ngModel)]="selected">
+    <option *ngFor="let person of people" [value]="person.name" [innerHTML]="person.name"></option>
+</select>
+{{selected}}
+
+<h3>Volviendo al ejemplo del input, ahora con ngModel</h3>
+<p><code>[value]="name" (input)="name = $event.target.value"</code></p>
+<input type="text" [value]="name" (input)="name = $event.target.value">
+
+<p>Es lo mismo que el ejemplo de abajo, pero no tenemos que recoardar los nombres de las propiedades
+  o de los eventos
+</p>
+<p><code>[ngModel]="name" (ngModel)="name = $event.target.value"</code></p>
+<input type="text" [ngModel]="name" (ngModelChange)="name = $event">
+<p>y que se puede simplificar en:</p>
+<p><code>[(ngModel)]="name"</code></p>
+<input type="text" [(ngModel)]="name">
+
+<p>Angular usa un adaptador de tipo <code>ControlValueAccesor</code> para controlar las diferencias enntre los
+elementos nativos HTML, como por ejemplo el input</p>
+
+<p>NO puedes aplocar ngModel sobre un elmento de formularios que no es nativo de HTML, para poder hacerlo, debes de escribir un <code>Value Accesor</code>
+acorde</p>
+
+<p>Pero no nesecitas la directiva ngModel para conseguir esto, un claro ejemplo de como conseguirlo es el componente
+  <code>fund-sizer</code> al comienzo de esta seccion
+</p>
+
+<h3>Separando [(ngModel)] para realizar mas que una asignacion</h3>
+<p>En caso de que quieras hacer otra cosa que no sea asignar el nuevo valor a la propieda, puedes separar [(ngModel)]
+  y utilizar la version separada.
+</p>
+<p>Este input de abajo convierte el primer nombre a mayusculas</p>
+<p><code>[ngModel]="name" (ngModelChange)="setUpperCaseFirstName($event)"</code></p>
+<input type="text" [ngModel]="name" (ngModelChange)="setUpperCaseFirstName($event)">
