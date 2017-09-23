@@ -3,7 +3,7 @@ import { Person } from '../helper-classes/person';
 
 @Component({
   selector: 'fund-person-detail',
-  templateUrl: './fund-person-detail.html',
+  templateUrl: './fund-person-detail.component.html',
   styles: [`.person {
     border: 1px solid #ccc;
     background-color: #eeeeee;

@@ -1,1 +1,147 @@
 <h2>Directivas structurales de angular mas usadas</h2>
+
+<h3><code>*ngIf</code></h3>
+<p><code>*ngIf="isVisible"</code> este tipo de directivas utilizan un asterisco como prefijo,
+  y no utilizar los corchetes que representan <code>Property binding</code>. ¿Por qué? Aun no lo se, pero en
+  la seccion de Directivas structurales lo descubrire.
+</p>
+<p><code>&lt;div&gt; *ngIf="isVisible" ...&lt;/div&gt;</code></p>
+<div *ngIf="isVisible" class="visibility">
+  <p>Texto que se puede eliminar o agregar del DOM con la directiva ngIf</p>
+</div>
+<p><code>(click)="setVisibility()"</code></p>
+<p>
+  <button (click)="setVisibility()">
+    Eliminar/crear div utilizando la propiedad <code>isVisible</code>
+  </button>
+</p>
+
+<h4>Ocultar/mostrar no es lo mismo que agregar/eliminar</h4>
+<p>Podemos obtener un resultado visiblemente similar con bindeo de propiedades utilizando hidden, style y class.</p>
+
+<p>Utilizando el atribbuto hidden</p>
+<div [hidden]="!isVisible" class="visibility">
+  <p>Texto que se muestra/oculta usando <code>&lt;div&gt; [hidden]="!isVisible" ...&lt;/div&gt;</code></p>
+</div>
+
+<p>Utilizando bindeo de class</p>
+<div [class.invisible]="!isVisible" class="visibility">
+  <p>Texto que se muestra/oculta usando <code>&lt;div&gt; [class.invisible]="!isVisible" ...&lt;/div&gt;</code></p>
+</div>
+
+<p>Utilizando bindeo de style</p>
+<div [style.display]="isVisible ? 'block' : 'none'" class="visibility">
+  <p>Texto que se muestra/oculta usando <code>&lt;div&gt; [style.display]="isVisible ? 'block' : 'none'" ...&lt;/div&gt;</code></p>
+</div>
+
+<p>Aunque obtenemos el mismo resultado, no es lo mismo porque los elementos siguen existiendo en el dom
+  consumiendo memoria y angular puede continuar checando cambios en ellos. Esto provoca bajo
+rendimiento y experienca de usuario de elementos que no son visibles y que no tienen mas interaccion con el usuario</p>
+
+<h4>*ngIf guarda contra null</h4>
+<p>*ngIf es excelente para evitar accesos a propiedades o variables que no existen y que provocaran errores. Esto no se puede conseguir
+  mostrando/ocultando los elementos pues sigue existiendo</p>
+
+<div *ngIf="currentHero">Hello, {{currentHero.name}}</div>
+<div *ngIf="nullHero">Hello, {{nullHero.name}}</div>
+
+<h3>
+  <code>*ngFor</code>
+</h3>
+
+<code>&lt;li *ngFor="let person of people"&gt;...&lt;/li&gt;</code>
+<ul>
+  <li *ngFor="let person of people">{{person.name}}</li>
+</ul>
+
+<code>&lt;fund-person-detail *ngFor="let person of people" [person]="person"&gt;&lt;/fund-person-detail&gt;</code>
+<fund-person-detail *ngFor="let person of people" [person]="person"></fund-person-detail>
+
+<p>El codigo que se asigna a <code>*ngFor</code> no es un <code>template expression</code>, se llama
+<code>microsyntax</code>, un pequeno lenguage que angular interpreta.</p>
+
+
+<h3>template input variables</h3>
+<p>Del ejemplo anterior podemos decir que person es una <code>template input variable</code></p>
+
+<h3>*ngFor con <code>index</code></h3>
+<p>Puedes utilizar una variable <code>index</code> que expone la directive <code>*ngFor</code></p>
+
+
+<fund-person-detail *ngFor="let person of people;let i = index" [person]="person">
+  <p>El index  es <strong>{{i}}</strong> para {{person.name}}</p>
+</fund-person-detail>
+
+<h3>*ngFor with <code>trackBy</code></h3>
+<p>El costo de recrear una lista de elementos puede afectar el rendimeinto de la interfaz grafica, por ejemplo
+  si un dato de un elemento cambia, ngFor tendria que recrear toda la lista completa, o si la lista se actualiza en 
+  base un servicio http la lista tambien se recrearia, aun cuando el resultado de esa peticion http solo
+  afecte a un elemento.
+</p>
+
+<p>Lo anterior se puede evitar con el uso de <code>trackBy</code>. Aqui esta un ejemplo:</p>
+
+<p><code>  trackByPerson (index: number, person: Person): number &#123;
+    return person.id;
+  &#125;</code></p>
+<div>
+  <fund-person-detail
+    *ngFor="let person of people; trackBy: trackByPerson"
+    [person]="person"
+    (deleteEvent)="delete($event)"
+  >
+    {{person.id}} {{person.name}}
+  </fund-person-detail>
+</div>
+<div>
+  <p>Sin trackBy</p>
+  <fund-person-detail
+  *ngFor="let person of people"
+  [person]="person"
+  (deleteEvent)="delete($event)"
+  >
+  {{person.id}} {{person.name}}
+  </fund-person-detail>
+</div>
+
+<h3><code>ngSwitch</code></h3>
+<p>Es como la sentencia swith de javascript. ngSwitch esta formada realmente por estas directivas:</p>
+<ul>
+  <li><code>*ngSwitch</code></li>
+  <li><code>*ngSwitchCase</code></li>
+  <li><code>*ngSwitchDefault</code></li>
+</ul>
+
+<p>Ejemplo:</p>
+<input type="radio" name="idPersonSelected" [(ngModel)]="personSelected" value="0" id="0_id">
+<label for="0_id">0</label>
+<input type="radio" name="idPersonSelected" [(ngModel)]="personSelected" value="1" id="1_id">
+<label for="1_id">1</label>
+<input type="radio" name="idPersonSelected" [(ngModel)]="personSelected" value="2" id="2_id">
+<label for="2_id">2</label>
+<input type="radio" name="idPersonSelected" [(ngModel)]="personSelected" value="3" id="3_id">
+<label for="3_id">3</label>
+<!-- Create and add to the DOM until people is filled with data from the service -->
+<div *ngIf="people?.length > 0">
+  <div [ngSwitch]="personSelected">
+    <fund-person-detail *ngSwitchCase="0" [person]="getPerson(0)"></fund-person-detail>
+    <fund-person-detail *ngSwitchCase="1" [person]="getPerson(1)"></fund-person-detail>
+    <fund-person-detail *ngSwitchCase="2" [person]="getPerson(2)"></fund-person-detail>
+    <fund-person-detail *ngSwitchDefault [person]="getPerson(3)"></fund-person-detail>
+  </div>
+</div>
+
+<!-- Create and add to the DOM until people is filled with data from the service -->
+<div *ngIf="people?.length > 0">
+  <div [ngSwitch]="personSelected">
+    <fund-person-detail *ngSwitchCase="0" [person]="people[0]"></fund-person-detail>
+    <fund-person-detail *ngSwitchCase="1" [person]="people[1]"></fund-person-detail>
+    <fund-person-detail *ngSwitchCase="2" [person]="people[2]"></fund-person-detail>
+    <fund-person-detail *ngSwitchDefault [person]="people[3]"></fund-person-detail>
+  </div>
+</div>
+
+<p>Hay que notar que <code>[ngSwitch]</code> no lleva asterisco, lleva corchetes(property binding), es una directiva de control</p>
+<p><code>ngSwitchCase</code> y <code>ngSwitchDefault</code> si llevan asterisco</p>
+
+<p>Las directivas de switch, son utiles pare agregar y/o eliminar varios elementos del DOM segun el <code>case</code> </p>
