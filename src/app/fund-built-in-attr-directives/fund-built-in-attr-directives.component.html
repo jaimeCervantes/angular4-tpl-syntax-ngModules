@@ -1,0 +1,40 @@
+<h2>Directivas atributos de angular mas usadas</h2>
+
+<h3>ngClass</h3>
+
+<div [class.special]="isSpecial">
+  <p>Este es un div con clase <code>special</code> usando <code>[class.special]="isSpecial"</code></p>
+  <p>Funciona para agregar o quitar una solo clase</p>
+</div>
+
+<div [ngClass]="currentClasses">
+  <p>Este es un div con varias clases usando <code>[ngClass]="currentClasses"</code></p>
+  <p><button (click)="setCurrentClasses()">Agregar clases al div</button></p>
+  <p>Funciona para agregar o quitar varias clases, utilizando un metodo se puede agregar las clases
+    la funcionalidad.
+  </p>
+  <p>Mandar a llamar al metodo cuando se inicializa y cuando los valores cambian, dependen del programador</p>
+  <p>Aqui angular difiere de Vue.js y Polymer, los cuales utilizan el patron observador
+    a traves de propiedades computadas, watchers y observers, para actualizar cambios manualmente
+  </p>
+  <p>
+    En angular se puede utilizar RxJS (RxJS utiliza el patron observador), y supongo, aun no lo se,
+    se puede utilizar algunos de los metodos del ciclo de vida de los componentes para detecar cambios
+  </p>
+</div>
+
+<h3>ngStyle</h3>
+
+<div [style.background-color]="'green'">
+  <p>Utilizando [style.background-color]="'green'" <code>[style.background-color]="'green'"</code></p>
+</div>
+
+<div [ngStyle]="currentStyles">
+  <p>Ahora este div utiliza <code>[ngStyle]="currentStyles"</code></p>
+  <p><button (click)="setCurrentStyles()"> Agregar estilos en linea</button></p>
+
+  <p>Mandar a llamar al metodo cuando se inicializa y cuando los valores cambian, dependen del programador</p>
+</div>
+
+<h3>ngModel</h3>
+<p>Este es lo mismo que en la seccion <a routerLink="/template-syntax/two-way-binding">Two way binding</a></p>

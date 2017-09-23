@@ -1,0 +1,15 @@
+.special {
+  background-color: #000;
+  color:white;
+  padding: 5px;
+}
+
+
+.modified {
+  background-color: #046F81
+}
+
+div {
+  border: 1px solid #000;
+  margin-bottom: 10px;
+}
