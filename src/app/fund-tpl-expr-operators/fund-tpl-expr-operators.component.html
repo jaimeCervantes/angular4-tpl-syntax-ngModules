@@ -1,1 +1,51 @@
 <h2>Template expression operators, Operadors de expressiones de plantillas</h2>
+
+<h3>Pipe Operator (<code>|</code>)</h3>
+
+<p><code>title | uppercase</code></p>
+<p>{{ title | uppercase }}</p>
+
+<h4>Puedes encadenar los pipes </h4>
+<p><code>title | uppercase | lowercase</code></p>
+<p>{{title | uppercase | lowercase }}</p>
+
+<h4>Les puedes pasar parametros a los pipes</h4>
+<p><code>person?.fechaNacimiento | date: 'longDate'</code></p>
+<p>{{ person?.fechaNacimiento | date: 'longDate' }}</p>
+
+<h4>El pipe json es muy util</h4>
+<p><code>person | json</code></p>
+<p>{{person | json}}</p>
+
+<h3>Safe navigation operator (<code>.?</code>) and null properties path, Operator de proteccion de navegacion y propiedades nullas</h3>
+
+<p>Cuando alguna proiedad o subpropiedad es null, javascript dispara un error y angular tambien. Este error hace que la aplicacion completa se detenga y no muestre nada
+  .
+</p>
+
+<p>Podemos utilizar la directiva *ngIf y operadores de javascript como &&, pero cuando es una propiedad muy profunda el codigo se veria demasiado engorroso.</p>
+
+<h4>Por lo anterior existe el operador de proteccion en la navegacion</h4>
+<p>En este ejemplo si person es null, o hijos es null, la applicacion sigue funcionando y deja en blanco el valor de null</p>
+<p><code>person?.hijos?.nombre</code></p>
+<p>Primer hijo = {{person?.hijos?.nombre}}</p>
+
+<h4>Ahora accedindo al segundo hijo por error</h4>
+<p><code>person?.hijos[1]?.nombre</code></p>
+<p>Primer hijo = {{person?.hijos[1]?.nombre}}</p>
+
+<h4>Ahora accedindo al primer hijo correctaente</h4>
+<p><code>person?.hijos[0]?.nombre</code></p>
+<p>Primer hijo = {{person?.hijos[0]?.nombre}}</p>
+
+<h3>The Non-null assertion operator (<code>!</code>)</h3>
+
+<p>Este operador es util cuando enciendes la bandera <code>--strickNullChecks</code>, la cual obliga a toda tu aplicacion a no tener algunar referencia null o undefined en variables y propiedades</p>
+
+<p>Utilizando el operator de afirmacion no nulla, no te protege de valores null o undefined, pero suspende  el chequeo stricto de nulls, abajo esta un ejemplo de su sintaxis:</p>
+
+<p><code>person.herramientas!.algo</code></p>
+<p>herramienta.algo = {{person.herramientas!.algo}}</p>
+
+<p>De la manera anterior estableces que ciertos valores null y undefined prevalescan en situaciones que sabes no ocurriran, pero el checador de tipos de angulr no</p>
+
