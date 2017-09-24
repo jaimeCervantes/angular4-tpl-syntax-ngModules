@@ -1,0 +1,22 @@
+<h2>Input and output properties (@Input() and @Output())</h2>
+
+<p>Necesitamos saber la diferencia entre <strong>target binding</strong> y <strong> source binding</strong></p>
+
+<p><strong>Target binding</strong> es la parte que esta a la izquierda del signo de <code>=</code></p>
+<p><strong>Source binding</strong> es la parte a la derecha de <code>=</code></p>
+
+<p><strong>Target binding</strong> se identifica por estar dentro de los signos <code>[]</code>, <code>()</code> o <code>[()]</code></p>
+<p><strong>Source binding</strong> se indentifica por dentro de <code>""</code> o interpolacion</p>
+
+<p>Cada miembro de la fuente de la directivve (tambien source binding) esta automaticamente disponible para binding. Osea no tienes que 
+  hacer nada especial para acceder a ellas dentro de un componente usando template expression(expresiones de plantilla) o template statements(sentencias de plantilla)
+</p>
+<p>Se tiene acceso limitado a el objetivo del bindeo( targe binding), solo puedes hacer bindeos a las propiedades target que estan explicitamente definidas
+  como inputs y ouputs usando los decoradores @Input("alias") y @Output("alias")
+</p>
+
+<p>Source binding (sourrce members):</p>
+<p><code>&lt;img [src]="iconUrl"/&gt; &lt;button (click)="onSave()">Save&lt;/button&gt;</code></p>
+
+<p>Target binding:</p>
+<p><code>&lt;hero-detail [hero]="currentHero" (deleteRequest)="deleteHero($event)"&gt;&lt;/hero-detail&gt;</code></p>

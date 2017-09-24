@@ -10,6 +10,9 @@ import { FundSizerComponent } from '../fund-sizer/fund-sizer.component';
 import { FundTwoWayBindingComponent } from '../fund-two-way-binding/fund-two-way-binding.component';
 import { FundBuiltInAttrDirectivesComponent } from '../fund-built-in-attr-directives/fund-built-in-attr-directives.component';
 import { FundBuiltInStructDirectivesComponent } from '../fund-built-in-struct-directives/fund-built-in-struct-directives.component';
+import { FundTemplateReferenceVariablesComponent } from '../fund-template-reference-variables/fund-template-reference-variables.component';
+import { FundInputOutputPropsComponent } from '../fund-input-output-props/fund-input-output-props.component';
+import { FundTplExprOperatorsComponent } from '../fund-tpl-expr-operators/fund-tpl-expr-operators.component';
 
 import { RoutingModule } from '../routing/routing.module';
 
@@ -23,13 +26,17 @@ import { RoutingModule } from '../routing/routing.module';
     FundSizerComponent,
     FundTwoWayBindingComponent,
     FundBuiltInAttrDirectivesComponent,
-    FundBuiltInStructDirectivesComponent
+    FundBuiltInStructDirectivesComponent,
+    FundTemplateReferenceVariablesComponent,
+    FundInputOutputPropsComponent,
+    FundTplExprOperatorsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RoutingModule
+    RoutingModule // to use routerLink inside the templates of components
   ],
+  // exports to be accessible from another modules that imports this module
   exports: [
     FundTemplateSyntaxComponent,
     FundPropertyBindingComponent,
@@ -39,7 +46,10 @@ import { RoutingModule } from '../routing/routing.module';
     FundSizerComponent,
     FundTwoWayBindingComponent,
     FundBuiltInAttrDirectivesComponent,
-    FundBuiltInStructDirectivesComponent
+    FundBuiltInStructDirectivesComponent,
+    FundTemplateReferenceVariablesComponent,
+    FundInputOutputPropsComponent,
+    FundTplExprOperatorsComponent
   ]
 })
 

@@ -1,0 +1,34 @@
+<h2>Template reference variables, variables de templates (<code>#var</code>)</h2>
+
+<p>Estas variables pueden guardar la referencia a un elemento del DOM, una directiva, un componente de angular
+  o un component web nativo. Todo esto claro dentro del template donde es definido
+</p>
+
+<p>Ejemplos:</p>
+
+<p><code>&lt;input type="text" #nombre&gt; &#123;&#123; nombre.value &#125;&#125;</code></p>
+<input type="text" #nombre value="Valor inicial">
+<p>Valor de la variable #nombre: {{nombre.value}}</p>
+
+<button (click)="showCurrentValue(nombre.value)">Ver valor actual</button>
+<p>Valor actual: {{currentValue}}</p>
+
+<p>Normalmente una variable de este tipo guarda su valor igual al elemento que es aplicado, pero se le puede asignar otro
+  valor, por ejemplo:
+</p>
+
+<p><code>#personForm="ngForm"</code></p>
+
+<form (ngSubmit)="onSubmit(personForm)" #personForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name
+        <input class="form-control" name="name" required [(ngModel)]="person.name">
+      </label>
+    </div>
+    <button type="submit" [disabled]="!personForm.form.valid">Submit</button>
+  </form>
+  <div [hidden]="!personForm.form.valid">
+    {{submitMessage}}
+  </div>
+
+  <p>Ver el codigo fuente de este ultimo ejemplo.</p>
