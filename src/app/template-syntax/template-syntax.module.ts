@@ -32,8 +32,8 @@ import { RoutingModule } from '../routing/routing.module';
     FundTplExprOperatorsComponent
   ],
   imports: [
-    // we don't import BrowserModule because we don't need to launch and run the app from here. The app
-    // We don't need to reinstall the app-wide(en toda la app) providers
+    // we don't import BrowserModule because we don't need to launch and run the app from here.
+    // We don't need to reinstall the app-wide(de toda la app) providers
     CommonModule, // directives like ngIf, ngFor
     FormsModule, // ngModel diretive
     RoutingModule // to use routerLink inside the templates of components
