@@ -14,12 +14,25 @@ import { AppComponent } from './app.component';
 import { HighlightDirective } from './highlight.directive';
 import { TitleComponent } from './title.component';
 import { UserService } from './user.service';
+/* Contact Imports */
+import { ContactComponent } from './contact/contact.component';
+/*
+{ ContactComponent }   from './contact/contact.component';
+*/
+import { ContactService } from './contact/contact.service';
+import { AwesomePipe } from './contact/awesome.pipe';
+
+import { HighlightDirective as ContactHighlihgtDirective } from './contact/highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HighlightDirective,
-    TitleComponent
+    TitleComponent,
+
+    ContactComponent,
+    AwesomePipe,
+    ContactHighlihgtDirective
   ],
   imports: [
     BrowserModule,
@@ -29,7 +42,7 @@ import { UserService } from './user.service';
     TemplateSyntaxModule,
     RoutingModule
   ],
-  providers: [PeopleService, UserService],
+  providers: [PeopleService, UserService, ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
