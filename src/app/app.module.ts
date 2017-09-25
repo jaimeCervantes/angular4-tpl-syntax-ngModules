@@ -22,6 +22,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ContactService } from './contact/contact.service';
 import { AwesomePipe } from './contact/awesome.pipe';
 
+//  Importing using as operator to avoid name conflicts with HighlightDirective directives
 import { HighlightDirective as ContactHighlihgtDirective } from './contact/highlight.directive';
 
 @NgModule({
