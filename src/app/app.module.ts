@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 // Learning ngModules
 import { HighlightDirective } from './highlight.directive';
 import { TitleComponent } from './title.component';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { TitleComponent } from './title.component';
     TemplateSyntaxModule,
     RoutingModule
   ],
-  providers: [PeopleService],
+  providers: [PeopleService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
