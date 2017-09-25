@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FundTemplateSyntaxComponent } from '../fund-template-syntax/fund-template-syntax.component';
 import { FundPropertyBindingComponent } from '../fund-property-binding/fund-property-binding.component';
@@ -32,8 +32,10 @@ import { RoutingModule } from '../routing/routing.module';
     FundTplExprOperatorsComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
+    // we don't import BrowserModule because we don't need to launch and run the app from here. The app
+    // We don't need to reinstall the app-wide(en toda la app) providers
+    CommonModule, // directives like ngIf, ngFor
+    FormsModule, // ngModel diretive
     RoutingModule // to use routerLink inside the templates of components
   ],
   // exports to be accessible from another modules that imports this module
