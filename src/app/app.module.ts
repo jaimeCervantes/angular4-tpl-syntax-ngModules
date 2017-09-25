@@ -9,12 +9,16 @@ import { PeopleService } from './services/people.service';
 import { TemplateSyntaxModule } from './template-syntax/template-syntax.module';
 import { RoutingModule } from './routing/routing.module';
 import { AppComponent } from './app.component';
+
+// Learning ngModules
 import { HighlightDirective } from './highlight.directive';
+import { TitleComponent } from './title.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HighlightDirective
+    HighlightDirective,
+    TitleComponent
   ],
   imports: [
     BrowserModule,
