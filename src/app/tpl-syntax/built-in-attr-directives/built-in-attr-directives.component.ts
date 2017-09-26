@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'fund-built-in-attr-directives',
-  templateUrl: './fund-built-in-attr-directives.component.html',
-  styleUrls: ['./fund-built-in-attr-directives.component.css']
+  selector: 'tpl-built-in-attr-directives',
+  templateUrl: './built-in-attr-directives.component.html',
+  styleUrls: ['./built-in-attr-directives.component.css']
 })
 
-export class FundBuiltInAttrDirectivesComponent {
+export class BuiltInAttrDirectivesComponent {
   private isSpecial = true;
   private isUnchanged = false;
   private canSave = true;

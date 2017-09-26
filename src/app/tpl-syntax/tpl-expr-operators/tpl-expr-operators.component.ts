@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'fund-tpl-expr-operators',
-  templateUrl: 'fund-tpl-expr-operators.component.html'
+  selector: 'tpl-tpl-expr-operators',
+  templateUrl: 'tpl-expr-operators.component.html'
 })
 
-export class FundTplExprOperatorsComponent {
+export class TplExprOperatorsComponent {
   title = 'Titulo de prueba para pipes';
   person = {
     nombre: 'Jaime',

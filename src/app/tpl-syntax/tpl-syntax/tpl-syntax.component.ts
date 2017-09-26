@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { PeopleService } from '../services/people.service';
-import { Person } from '../helper-classes/person';
+import { PeopleService } from '../../services/people.service';
+import { Person } from '../../helper-classes/person';
 
 @Component({
-  selector: 'fund-template-syntax',
-  templateUrl: './fund-template-syntax.component.html',
-  styleUrls: ['./fund-template-syntax.component.css']
+  selector: 'tpl-syntax',
+  templateUrl: './tpl-syntax.component.html',
+  styleUrls: ['./tpl-syntax.component.css']
 })
-export class FundTemplateSyntaxComponent implements OnInit {
+export class TplSyntaxComponent implements OnInit {
 
   private attrVsProp: string;
   private people: Person[];

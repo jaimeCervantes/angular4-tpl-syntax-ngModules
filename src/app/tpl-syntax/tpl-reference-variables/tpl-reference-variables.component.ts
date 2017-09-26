@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'fund-template-reference-variables',
-  templateUrl: './fund-template-reference-variables.component.html'
+  selector: 'tpl-reference-variables',
+  templateUrl: './tpl-reference-variables.component.html'
 })
 
-export class FundTemplateReferenceVariablesComponent {
+export class TplReferenceVariablesComponent {
 
   currentValue: any;
   submitMessage = 'Mensaje de algo';

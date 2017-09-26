@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'fund-property-binding',
-  templateUrl: './fund-property-binding.component.html'
+  selector: 'tpl-property-binding',
+  templateUrl: './property-binding.component.html'
 })
 
-export class FundPropertyBindingComponent {
+export class PropertyBindingComponent {
   private isUnchanged = true;
   private classes = { clase1: true, clase2: true };
   private whichOne = 'Interpolation or property binding';

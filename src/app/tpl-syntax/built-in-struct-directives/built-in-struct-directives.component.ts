@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { PeopleService } from '../services/people.service';
-import { Person } from '../helper-classes/person';
+import { PeopleService } from '../../services/people.service';
+import { Person } from '../../helper-classes/person';
 
 @Component({
-  selector: 'fund-built-in-struct-directives',
-  templateUrl: './fund-built-in-struct-directives.component.html',
-  styleUrls: ['./fund-built-in-struct-directives.component.css']
+  selector: 'tpl-built-in-struct-directives',
+  templateUrl: './built-in-struct-directives.component.html',
+  styleUrls: ['./built-in-struct-directives.component.css']
 })
 
-export class FundBuiltInStructDirectivesComponent implements OnInit {
+export class BuiltInStructDirectivesComponent implements OnInit {
   isVisible = true;
   people: Person[];
   personSelected = 3;

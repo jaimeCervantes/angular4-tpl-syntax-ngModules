@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'fund-attr-class-style-binding',
-  templateUrl: './fund-attr-class-style-binding.component.html',
+  selector: 'tpl-attr-class-style-binding',
+  templateUrl: './attr-class-style-binding.component.html',
   styles: [
     '.red { color: red}'
   ]
 })
 
-export class FundAttrClassStyleBindingComponent {
+export class AttrClassStyleBindingComponent {
   private actionName = 'Enviar';
   private classBinding = 'tres dos uno';
   private isSpecial = 'is-special';

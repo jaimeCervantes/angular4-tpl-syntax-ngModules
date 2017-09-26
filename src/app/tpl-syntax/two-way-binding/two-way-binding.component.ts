@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from '../helper-classes/person';
-import { PeopleService } from '../services/people.service';
+import { Person } from '../../helper-classes/person';
+import { PeopleService } from '../../services/people.service';
 
 @Component({
-  selector: 'fund-two-way-binding',
-  templateUrl: './fund-two-way-binding.component.html'
+  selector: 'tpl-two-way-binding',
+  templateUrl: './two-way-binding.component.html'
 })
 
-export class FundTwoWayBindingComponent implements OnInit {
+export class TwoWayBindingComponent implements OnInit {
   private fontSizePx = 10;
   private name = 'Jaime Cervantes';
   private people: Person[];

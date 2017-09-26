@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { PeopleService } from '../services/people.service';
-import { Person } from '../helper-classes/person';
+import { PeopleService } from '../../services/people.service';
+import { Person } from '../../helper-classes/person';
 
 @Component({
-  selector: 'fund-event-binding',
-  templateUrl: './fund-event-binding.component.html'
+  selector: 'tpl-event-binding',
+  templateUrl: './event-binding.component.html'
 })
 
-export class FundEventBindingComponent implements OnInit {
+export class EventBindingComponent implements OnInit {
 
   private people: Person[];
 

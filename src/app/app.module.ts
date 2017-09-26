@@ -6,9 +6,9 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data-service';
 
 import { PeopleService } from './services/people.service';
-import { TemplateSyntaxModule } from './template-syntax/template-syntax.module';
-import { RoutingModule } from './routing/routing.module';
+import { TplSyntaxModule } from './tpl-syntax/tpl-syntax.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 // Learning ngModules
 import { HighlightDirective } from './highlight.directive';
@@ -28,8 +28,8 @@ import { ContactModule } from './contact/contact.module';
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    TemplateSyntaxModule,
-    RoutingModule,
+    AppRoutingModule,
+    TplSyntaxModule,
     ContactModule
   ],
   providers: [PeopleService, UserService],
