@@ -11,6 +11,7 @@ import { AwesomePipe } from './awesome.pipe';
 
 //  Importing using as operator to avoid name conflicts with HighlightDirective directives
 import { HighlightDirective } from './highlight.directive';
+import { ContactRoutingModule } from './contact-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,8 @@ import { HighlightDirective } from './highlight.directive';
   ],
   imports: [
     CommonModule,
-    FormsModule
-  ],
-  // exports to be accessible from another modules that imports this module
-  exports: [
-    ContactComponent
+    FormsModule,
+    ContactRoutingModule
   ],
   // Contact service provider is only used in this module
   providers: [ContactService]
