@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data-service';
@@ -19,13 +18,11 @@ import { ContactModule } from './contact/contact.module';
 @NgModule({
   declarations: [
     AppComponent,
-    // Now this directive does not conflict with the contact one
     HighlightDirective,
     TitleComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,
