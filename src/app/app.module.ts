@@ -6,7 +6,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data-service';
 
 import { PeopleService } from './services/people.service';
-import { TplSyntaxModule } from './tpl-syntax/tpl-syntax.module';
+import { TplSyntaxDataBindingModule } from './tpl-data-binding/tpl-syntax-data-binding.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -29,7 +29,7 @@ import { ContactModule } from './contact/contact.module';
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,
-    TplSyntaxModule,
+    TplSyntaxDataBindingModule,
     ContactModule
   ],
   providers: [PeopleService, UserService],

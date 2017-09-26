@@ -14,7 +14,7 @@ import { TplReferenceVariablesComponent } from './tpl-reference-variables/tpl-re
 import { InputOutputPropsComponent } from './input-output-props/input-output-props.component';
 import { TplExprOperatorsComponent } from './tpl-expr-operators/tpl-expr-operators.component';
 
-import { TplSyntaxRoutingModule } from './tpl-syntax-routing.module';
+import { TplSyntaxDataBindingRoutingModule } from './tpl-syntax-data-binding-routing.module';
 
 @NgModule({
   declarations: [
@@ -36,8 +36,8 @@ import { TplSyntaxRoutingModule } from './tpl-syntax-routing.module';
     // We don't need to reinstall the app-wide(de toda la app) providers
     CommonModule, // directives like ngIf, ngFor
     FormsModule, // ngModel diretive
-    TplSyntaxRoutingModule // to use routerLink inside the templates of components
+    TplSyntaxDataBindingRoutingModule // to use routerLink inside the templates of components
   ]
 })
 
-export class TplSyntaxModule {}
+export class TplSyntaxDataBindingModule {}
