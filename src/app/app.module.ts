@@ -14,26 +14,14 @@ import { AppComponent } from './app.component';
 import { HighlightDirective } from './highlight.directive';
 import { TitleComponent } from './title.component';
 import { UserService } from './user.service';
-/* Contact Imports */
-import { ContactComponent } from './contact/contact.component';
-/*
-{ ContactComponent }   from './contact/contact.component';
-*/
-import { ContactService } from './contact/contact.service';
-import { AwesomePipe } from './contact/awesome.pipe';
-
-//  Importing using as operator to avoid name conflicts with HighlightDirective directives
-import { HighlightDirective as ContactHighlihgtDirective } from './contact/highlight.directive';
+import { ContactModule } from './contact/contact.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    // Now this directive does not conflict with the contact one
     HighlightDirective,
-    TitleComponent,
-
-    ContactComponent,
-    AwesomePipe,
-    ContactHighlihgtDirective
+    TitleComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +29,10 @@ import { HighlightDirective as ContactHighlihgtDirective } from './contact/highl
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     TemplateSyntaxModule,
-    RoutingModule
+    RoutingModule,
+    ContactModule
   ],
-  providers: [PeopleService, UserService, ContactService],
+  providers: [PeopleService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
