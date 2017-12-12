@@ -15,6 +15,11 @@ import { TitleComponent } from './title.component';
 import { UserService } from './user.service';
 import { ContactModule } from './contact/contact.module';
 
+// angular material needs animations for its components
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// angular components to be used in the app
+import { MatToolbarModule, MatSidenavModule, MatListModule } from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +28,10 @@ import { ContactModule } from './contact/contact.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,

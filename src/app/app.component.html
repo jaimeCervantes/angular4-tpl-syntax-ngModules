@@ -1,27 +1,36 @@
-<div>
-  <app-title [subtitle]="subtitle"></app-title>
-  <nav>
-    <ul>
-      <li>
-        Template Syntax & data binding
-        <ul>
-          <li><a routerLink="/tpl-syntax-data-binding/tpl-syntax">Template syntax</a></li>
-          <li><a routerLink="/tpl-syntax-data-binding/property-binding">Property Binding</a></li>
-          <li><a routerLink="/tpl-syntax-data-binding/attr-class-style-binding">Attributes, class and style binding</a></li>
-          <li><a routerLink="/tpl-syntax-data-binding/event-binding">Event binding</a></li>
-          <li><a routerLink="/tpl-syntax-data-binding/two-way-binding">Two way binding</a></li>
-          <li><a routerLink="/tpl-syntax-data-binding/built-in-attr-directives">Built-in attributes directives</a></li>
-          <li><a routerLink="/tpl-syntax-data-binding/built-in-struct-directives">Built-in structural directives</a></li>
-          <li><a routerLink="/tpl-syntax-data-binding/template-reference-variables">Template reference variables</a></li>
-          <li><a routerLink="/tpl-syntax-data-binding/input-output-props">Input and Ouput properties</a></li>
-          <li><a routerLink="/tpl-syntax-data-binding/tpl-expr-operators">Template epression operators</a></li>
-        </ul>
-      </li>
-      <li>
-          <a routerLink="contact" routerLinkActive="active">Contact</a>
-      </li>
-    </ul>
-  </nav>
-  <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav class="example-sidenav">
+      <mat-nav-list>
+          <mat-list-item>Template Syntax & data binding</mat-list-item>
+          <mat-list>
+            <mat-list-item><a routerLink="/tpl-syntax-data-binding/tpl-syntax">Template syntax</a></mat-list-item>
+            <mat-list-item><a routerLink="/tpl-syntax-data-binding/property-binding">Property Binding</a></mat-list-item>
+            <mat-list-item><a routerLink="/tpl-syntax-data-binding/attr-class-style-binding">Attributes, class and style binding</a></mat-list-item>
+            <mat-list-item><a routerLink="/tpl-syntax-data-binding/event-binding">Event binding</a></mat-list-item>
+            <mat-list-item><a routerLink="/tpl-syntax-data-binding/two-way-binding">Two way binding</a></mat-list-item>
+            <mat-list-item><a routerLink="/tpl-syntax-data-binding/built-in-attr-directives">Built-in attributes directives</a></mat-list-item>
+            <mat-list-item><a routerLink="/tpl-syntax-data-binding/built-in-struct-directives">Built-in structural directives</a></mat-list-item>
+            <mat-list-item><a routerLink="/tpl-syntax-data-binding/template-reference-variables">Template reference variables</a></mat-list-item>
+            <mat-list-item><a routerLink="/tpl-syntax-data-binding/input-output-props">Input and Ouput properties</a></mat-list-item>
+            <mat-list-item><a routerLink="/tpl-syntax-data-binding/tpl-expr-operators">Template epression operators</a></mat-list-item>
+          </mat-list>
+          <mat-list-item><a routerLink="contact" routerLinkActive="active">Contact</a></mat-list-item>
+      </mat-nav-list>
+  </mat-sidenav>
+  
+  <mat-toolbar>
+      <button type="button" mat-button (click)="sidenav.open()">
+          Menu
+        </button>
+      <h1 >{{title}} {{subtitle}}</h1>
+      <p *ngIf="user">
+        <i>Welcome, {{user}}</i>
+      <p>
+  </mat-toolbar>
+
+  <div class="content">
+      <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>
 

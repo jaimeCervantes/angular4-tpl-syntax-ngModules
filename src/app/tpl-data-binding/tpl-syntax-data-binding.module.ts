@@ -15,10 +15,17 @@ import { InputOutputPropsComponent } from './input-output-props/input-output-pro
 import { TplExprOperatorsComponent } from './tpl-expr-operators/tpl-expr-operators.component';
 import { TplSyntaxDataBindingRoutingModule } from './tpl-syntax-data-binding-routing.module';
 
+// componentes to be used in the tpl-syntax components
+import {MatButtonModule, MatCheckboxModule, MatInputModule} from '@angular/material';
+
 @NgModule({
   imports: [
     SharedModule, // get Common and Forms Module, awesome pipe and highlight directive
-    TplSyntaxDataBindingRoutingModule // to use routerLink inside the templates of components
+    TplSyntaxDataBindingRoutingModule, // to use routerLink inside the templates of components
+    // angular material
+    MatButtonModule,
+    MatCheckboxModule,
+    MatInputModule
   ],
   declarations: [
     TplSyntaxComponent,
@@ -33,6 +40,12 @@ import { TplSyntaxDataBindingRoutingModule } from './tpl-syntax-data-binding-rou
     TplReferenceVariablesComponent,
     InputOutputPropsComponent,
     TplExprOperatorsComponent
+  ],
+  exports: [
+    // angular material
+    MatButtonModule,
+    MatCheckboxModule,
+    MatInputModule
   ]
 })
 

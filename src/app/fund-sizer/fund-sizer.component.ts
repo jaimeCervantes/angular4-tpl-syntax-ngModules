@@ -13,7 +13,7 @@ export class FundSizerComponent {
   /**
    * Alias
    * Puedes agregar un alias, asi cuando quierar hacer un Property binding se utilizaria 'sizeX'
-   * Y cuando quieras hacer un Event binding utilizarias 'sizeXChange'
+   * Y cuando quieras hacer un Event binding utilizarias 'sizeChangeX'
    * @Input('sizeX') size: number | string;
    * @Output('sizeChangeX') sizeChange = new EventEmitter<number>();
    */

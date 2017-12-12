@@ -1,7 +1,11 @@
 <h2>Template Expressions</h2>
 <p><code>{{</code><code>expression</code><code>}}</code></p>
 <p>This is a component member {{title}}</p>
-<input type="text" value="valor de Template reference variable" #templateReferenceVariable>
+<form action="">
+<mat-form-field>
+  <input matInput type="text" value="valor de Template reference variable" #templateReferenceVariable>
+</mat-form-field>
+</form>
 <p>{{templateReferenceVariable}}</p>
 <p>{{templateReferenceVariable.value}}</p>
 <ul>
